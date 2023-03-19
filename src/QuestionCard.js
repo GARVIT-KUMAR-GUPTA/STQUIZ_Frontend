@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Routes, Route, Link } from 'react-router-dom';
 import { Typography } from "@material-tailwind/react";
 import Navbar from './Navbar';
@@ -8,6 +8,7 @@ import SingleQuestion from './SingleQuestion';
 import questions from './data';
 import { useGlobalContext } from './context';
 import { FaDuotone, FaCheck, FaXmark } from "react-icons/fa";
+import QuizTimer from './quizCounter';
 
 function QuestionCard() {
     const { increaseScore, questionIndex, clicked, nextQuestion, isEnd, score,addUserQuestion,userChoice } = useGlobalContext();
@@ -17,10 +18,22 @@ function QuestionCard() {
     const [questionTime,setQuestionTime]=useState(30)
     const question = questions[questionIndex];
     const { questionText, answerOptions } = question;
-    console.log("UserChoice",userChoice);
-    const myInterval=setInterval(()=>{
-        setQuestionTime(questionTime-1);
-    },1000)
+    // console.log("UserChoice",userChoice);
+    // console.log(questionTime);
+    const handleTimeUp = () => {
+        // do something when time is up
+        if(!isEnd)
+            nextQuestion();
+      };
+      const [changeQuestion,setChangeQuestion]=useState(false);
+//    useEffect(() => {
+//     console.log("Question Change",changeQuestion);
+//     setChangeQuestion(false)
+//     setQuestionTime(30)
+//    }, [changeQuestion])
+   const totalTime=()=>{
+    return questionTime;
+   }
     const correctOption = answerOptions.filter((option) => {
         return option.isCorrect;
     })[0]
@@ -34,27 +47,24 @@ function QuestionCard() {
                 <h1 className="  mx-4 float-left my-4   "> <b>Quiz name: math</b> </h1>
 
 
-                <div
+                {/* <div
                     className="circular-progress  relative	h-10 w-10 bg-slate-100	 rounded-full flex items-center justify-center float-right mx-4 my-2  ">
-                    <span className="progress-value  relative text-lg	font-semibold	 "> {questionTime} </span>
+                    <span className="progress-value  relative text-lg	font-semibold	 "> <QuizTimer totalTime={10} handleTimeUp={handleTimeUp} isReset={changeQuestion} /></span>
 
-                </div>
+                </div> */}
                 <p className="text-right pb-2 text-green-600">
-
-
                     {questionIndex + 1}/{questions.length}
-
                 </p>
             </div>
 
             <div className=" my-12">
 
-                <p className="text-center  py-3"><b>{questionText}</b></p>
+                <p className="text-center  text-3xl py-3"><b>{questionText}</b></p>
 
                 <div className=" flex-row 	 lg:grid grid-cols-2  gap-14">
                     {answerOptions.map((answer, index) => {
                         return (
-                            <div className={`bg-white-600  border-${optionBorder[index]}-800	border-solid rounded-md	mt-4	mx-4 border-2  text-center p-2`}>
+                            <div className={`bg-${optionBorder[index]}-600  border-black-800	border-solid rounded-md	mt-4	mx-4   text-center`}>
                                 <button
                                     onClick={() =>{
                                         if(answer.isCorrect){
@@ -70,7 +80,7 @@ function QuestionCard() {
                                     type="button"
                                     disabled={clicked !== null}
                                     key={index}
-                                    className="w-full h-full font-bold"
+                                    className="w-full h-full font-bold p-2"
                                     
                                 >{answer.answerText}</button>
                             </div>
@@ -83,10 +93,11 @@ function QuestionCard() {
                     {
                         !isEnd && <button
                         disabled={clicked === null}
-                            className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" onClick={() =>{
+                            className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" 
+                            onClick={() =>{
+                                setQuestionTime(30);
                                 nextQuestion();
-                                
-                                setQuestionTime(30)
+                                setChangeQuestion(true)
                                 setOptionBorder(["sky","sky","sky","sky"]);
                             }}>{!isEnd ? "Next" : "Submit"}
                         </button>
@@ -111,7 +122,7 @@ function QuestionCard() {
                     clicked !== null && !answerOptions[userChoice[questionIndex]].isCorrect && 
                 } */}
                 {
-                    clicked !== null && <p>{`${correctOption.answerText}: ${correctOption.Meaning}`}</p>
+                    clicked !== null && <p className='text-center  text-2xl py-3 '><b>{correctOption.answerText}</b>: {correctOption.Meaning}</p>
                 }
 
 

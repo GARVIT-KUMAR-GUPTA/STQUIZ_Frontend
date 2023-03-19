@@ -7,11 +7,13 @@ import { Button,Label,TextInput,Checkbox} from 'flowbite-react';
 import Navbar from './Navbar';
 import QuestionCard from './QuestionCard';
 import Modal from './Modal2';
+import Footer from './srcHome/component/Home/Footer';
 
 function Questions() {
     const { questionIndex, isEnd, nextQuestion, isWrongSelected, clicked,playAgain, ShowAnswer, showExplanation } = useGlobalContext();
     
     const options = questions[questionIndex].answerOptions;
+    
     const correctOption = options.filter((option) => {
         return option.isCorrect;
     })[0]
@@ -19,10 +21,12 @@ function Questions() {
         playAgain();
     },[])
     return (
-        <div className='max-h-screen'>
+
+            <div style={{backgroundColor:"#ffb14c"}} className="overflow-hidden ">
             <section>
             {/* <Modal></Modal> */}
             <QuestionCard></QuestionCard>
+            <Footer></Footer>
             </section>
         </div>
         

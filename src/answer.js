@@ -9,15 +9,17 @@ import { ThemeProvider } from "@material-tailwind/react";
 import Navbar from './Navbar';
 import questions from './data';
 import { useGlobalContext } from './context';
+import Footer from './srcHome/component/Home/Footer';
 
 function Answer() {
     const { increaseScore, questionIndex, clicked, nextQuestion, isEnd, score, addUserQuestion, userChoice } = useGlobalContext();
     let index = 0;
     console.log(questions, userChoice,score,questionIndex);
     return (
-        <div className="flex items-center justify-center">
+        <div style={{backgroundColor:"#ffb14c"}} className="overflow-hidden">
+        <div className="flex items-center justify-center m-2">
             <div className=" lg:mx-52 lg:my-50 lg:mt-10   bg-sky-50 ">
-                <div className="h-10 text-center bg-sky-50 border-2 border-sky-100	 ">
+                <div className=" text-center bg-sky-50 border-2 border-sky-100 m-2	 ">
                     <ul className="flex justify-between">
                         <li className="mr-3">
                             <Link to='/score' className="inline-block text-blue-500 py-2 px-4  hover:text-black" >Score</Link>
@@ -31,8 +33,8 @@ function Answer() {
                     </ul>
                 </div>
 
-                <div className=" my-4 mx-6 ">
-                    <ol className="list-decimal font-medium text-3xl space-y-16 mx-10">
+                <div className=" my-4 mx-6  ">
+                    <ol className=" font-medium text-3xl space-y-16 mx-10">
                         {
                             questions.map((question, index) => {
                                 const { questionText, answerOptions } = question;
@@ -59,6 +61,8 @@ function Answer() {
                     </ol>
                 </div>
             </div>
+        </div>
+        <Footer></Footer>
         </div>
     )
 }

@@ -7,6 +7,7 @@ import Modal from './Modal';
 
 function Hero() {
   return (
+    <div style={{backgroundColor:"#ffb14c"}} className="overflow-hidden ">
     <div className="flex justify-center  max-h-screen bg-[#fcd34d] bg-[url('bgImage.jpg')]">
       <div className="max-w-sm m-2">
         <Card imgSrc="https://flowbite.com/docs/images/blog/image-1.jpg">
@@ -17,6 +18,7 @@ function Hero() {
             <Modal></Modal>
           </div>
         </Card>
+      </div>
       </div>
 
     </div>

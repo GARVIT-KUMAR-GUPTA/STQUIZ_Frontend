@@ -18,7 +18,7 @@ function Start() {
   console.log("Hanfffffffe");
   return (
     <Fragment >
-      <section className="h-screen  bg-[#b45309] flex justify-center text-midnight items-center content-center">
+      <section style={{backgroundColor:"#ffb14c"}}  className="overflow-hidden  h-screen  bg-[#b45309] flex justify-center text-midnight items-center content-center">
         <Dialog 
           open={open}
           handler={handleOpen}

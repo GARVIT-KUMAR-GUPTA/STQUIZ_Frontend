@@ -14,13 +14,17 @@ import HomePage from './srcHome/component/Home/HomePage';
 import QuizCategory from './srcHome/component/Home/QuizCategory';
 import StartQuiz from './srcHome/component/Home/StartQuiz';
 import Login from './login';
+import Dashboard from './srcHome/component/Home/Dashboard';
 
+import Categories from './srcHome/component/Home/Categories';
+import Hero from './srcHome/component/Home/Hero';
 
 
 function App() {
   return (
     <>
-    <Navbar></Navbar>
+    <Categories/>
+    
     <Routes>
       <Route exact path='/startQuiz' element={<Home />}></Route>
       <Route exact path='/questions' element={<Questions></Questions>}></Route>
@@ -30,6 +34,7 @@ function App() {
       <Route exact path='/leaderboard' element={<Leaderboard></Leaderboard>}></Route>
       <Route exact path='/' element={<HomePage />} />
       <Route exact path='/login' element={<Login />} />
+      <Route exact path = '/user' element = {<Dashboard/>} />
       <Route exact path="/quizzes/:category" element={<QuizCategory />} />
       <Route exact path="/quizzes/:category/:name" element={<StartQuiz />} />
     </Routes>

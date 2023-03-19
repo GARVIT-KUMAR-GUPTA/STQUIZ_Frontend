@@ -9,6 +9,7 @@ import Start from './Start';
 import { ThemeProvider } from "@material-tailwind/react";
 import Navbar from './Navbar';
 import { useGlobalContext } from './context';
+import Footer from './srcHome/component/Home/Footer';
 
 
 function Score() {
@@ -26,7 +27,6 @@ function Score() {
                 clearInterval(progress);
             } else
                 progressStartValue++;
-
             progressValueRef.current.textContent = `${progressStartValue}%`
             circularProgressRef.current.style.background = `conic-gradient(#7d2ae8 ${progressStartValue * 3.6}deg, #ededed 0deg)`
             console.log(progressEndValue);
@@ -38,6 +38,7 @@ function Score() {
     }, [])
 
     return (
+        <div style={{backgroundColor:"#ffb14c"}} className="overflow-hidden">
         <div className="flex items-center justify-center">
             <div className=" mx-52 my-50 mt-10  ">
 
@@ -115,6 +116,8 @@ function Score() {
 
                 </div>
             </div>
+        </div>
+        <Footer></Footer>
         </div>
     )
 }
