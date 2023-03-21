@@ -1,81 +1,26 @@
 /** @type {import('tailwindcss').Config} */
-const withMT = require("@material-tailwind/react/utils/withMT");
-const fontFamily = {
-  sans: ["Roboto", "sans-serif"],
-  serif: ["Roboto Slab", "serif"],
-  body: ["Roboto", "sans-serif"],
-  mono: [
-    "SFMono-Regular",
-    "Menlo",
-    "Monaco",
-    "Consolas",
-    "Liberation Mono",
-    "Courier New",
-    "monospace",
-  ],
-};
-module.exports = withMT({
-  content: [
-  "./src/**/*.{js,jsx,ts,tsx}",
-  'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}',
-  "path-to-your-node_modules/@material-tailwind/react/components/**/*.{js,ts,jsx,tsx}",
-  "path-to-your-node_modules/@material-tailwind/react/theme/components/**/*.{js,ts,jsx,tsx}",
 
- ],
- darkMode: "className",
-   
+module.exports = {
+    content: [
+      "./index.html",
+      "./src/**/*.{js,ts,jsx,tsx}",
+    ],
+    theme: {
+      extend: {
+        screens: {
+          xs: '480px',
+        },
+        fontFamily: {
+          inter: ['Inter var', 'sans-serif'],
+        },
+        boxShadow: {
+          card: '0 0 1px 0 rgba(189,192,207,0.06),0 10px 16px -1px rgba(189,192,207,0.2)',
+          cardhover: '0 0 1px 0 rgba(189,192,207,0.06),0 10px 16px -1px rgba(189,192,207,0.4)',
+        },
+      },
+    },
     corePlugins: {
-      preflight: false,
-    },
-  theme: {
-    screens: {
-      sm: '480px',
-      md: '768px',
-      lg: '976px',
-      xl: '1440px',
-    },
-    fontFamily: {
-      sans: ["Roboto", "sans-serif"],
-      body: ["Roboto", "sans-serif"],
-      mono: ["ui-monospace", "monospace"],
-    },
-    spacing: {
-      '1': '8px',
-      '2': '12px',
-      '3': '16px',
-      '4': '24px',
-      '5': '32px',
-      '6': '48px',
-    },
-    colors: {
-      'blue': '#1fb6ff',
-      'purple': '#7e5bef',
-      'pink': '#ff49db',
-      'orange': '#ff7849',
-      'green': '#13ce66',
-      'yellow': '#ffc82c',
-      'gray-dark': '#273444',
-      'gray': '#8492a6',
-      'gray-light': '#d3dce6',
-    },
-    fontFamily: {
-      sans: ['Graphik', 'sans-serif'],
-      serif: ['Merriweather', 'serif'],
-    },
-    extend: {
-      spacing: {
-        '13': '3.25rem',
-        '15': '3.75rem',
-        '128': '32rem',
-        '144': '36rem',
+        preflight: false,
       },
-      borderRadius: {
-        '4xl': '2rem',
-      },
-      
-       
-    }
-  },
-  plugins: [require('flowbite/plugin')],
-})
-
+    plugins: [],
+  };
