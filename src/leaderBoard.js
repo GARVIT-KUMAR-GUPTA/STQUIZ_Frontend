@@ -13,8 +13,8 @@ import Footer from './srcHome/component/Home/Footer';
 function Leaderboard() {
     const {playAgain,score}=useGlobalContext()
     return (
-        <div style={{backgroundColor:"#ffb14c"}} className="max-h-screen">
-        <div className=" lg:flex lg:items-center lg:justify-center m-2">
+        <div style={{backgroundColor:"#ffb14c"}} className="max-h-screen" >
+        <div className=" lg:flex lg:items-center lg:justify-center ">
 
             <div className=" lg:mx-52 lg:my-50 mt-20   ">
 
@@ -34,10 +34,10 @@ function Leaderboard() {
 
 
 
-                <div className=" p-2  bg-red-100  ">
-                    <div className=" sm:mx-8 py-6 mt-6 mb-6 space-y-4  md:grid grid-cols-2 md:space-x-16 md:space-y-0">
+                <div className=" p-1  bg-red-100  ">
+                    <div className=" sm:mx-8 py-6  space-y-4  md:grid grid-cols-2 md:space-x-16 md:space-y-0">
                         <div>
-                            <div className=" flex	 md:w-96	px-12 py-4 rounded-lg	bg-white flex-col	  border-2 border-sky-300	">
+                            <div className=" flex	 md:w-96 m-2	px-12 py-4 rounded-lg	bg-white flex-col	  border-2 border-sky-300	">
                                 <h1 className="font-bold  text-center ">Top Score For This Quiz </h1>
                                 <div className="my-3 ">
                                     <table className="border-2 border-sky-300 rounded-md ">
@@ -61,9 +61,9 @@ function Leaderboard() {
                                     </table>
                                 </div>
                             </div>
-                            <div className="flex	 md:w-96	px-12 py-4 rounded-lg	bg-blue-900 flex-col	  border-2 border-sky-300">
+                            <div className="flex	 md:w-96	px-12 py-4 rounded-lg	bg-white flex-col	m-2  border-2 border-sky-300">
                                 <h1>Climb the Leaderboard! </h1>
-                                <h1><u>login to save your progress</u></h1>
+                               <h1><Link to='/login'>Login</Link> to save your progress</h1>
 
                                 <div className="bg-sky-600  my-4 ">
                                     <div className="float-left mx-2 my-3">YOU</div>

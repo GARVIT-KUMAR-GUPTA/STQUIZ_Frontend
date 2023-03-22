@@ -28,15 +28,18 @@ export default function Modal() {
                                     <h3 className="text-3xl font-semibold mb-4 text-xl font-medium text-gray-900 dark:text-white">
                                     How would you Like to Join the quiz
                                     </h3>
-
+                                    {/* <span className="bg-black text-black opacity-5 color-red h-6 w-6 text-2xl block outline-none focus:outline-none">
+                                            ×ff
+                                        </span> */}
                                     <button
-                                        className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                                        className="p-1 ml-auto bg-transparent border-0 text-black  float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
                                         onClick={() => setShowModal(false)}
                                     >
-                                        <span className="bg-black text-black opacity-5 color-red h-6 w-6 text-2xl block outline-none focus:outline-none">
+                                        <span className=" text-black   h-6 w-6 text-3xl block outline-none focus:outline-none border-2 border-double border-red">
                                             ×
                                         </span>
                                     </button>
+                                    
                                 </div>
                                 {/*body*/}
                                 <div className="px-6 py-6 lg:px-8">

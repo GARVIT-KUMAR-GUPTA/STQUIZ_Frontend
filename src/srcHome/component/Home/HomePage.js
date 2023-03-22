@@ -18,6 +18,7 @@ import QuizCard from "./QuizCard";
 import "./style.css";
 import Identity from "./Identity.js";
 import Latest from "./Latest.js";
+import Footer from "./Footer.js";
 // import Navbar from "./Navbar.js"
 // import Dropdown from "./Dropdown.js";
 const uniqueList = [
@@ -76,6 +77,7 @@ const HomePage = () => {
   return (
 
     <>
+    
       {/* <Dropdown/>  */}
 
       <Hero />
@@ -162,6 +164,7 @@ const HomePage = () => {
       {/* <footer /> */}
       <Latest/>
       <Latest/>
+      <Footer></Footer>
     </>
   )
 

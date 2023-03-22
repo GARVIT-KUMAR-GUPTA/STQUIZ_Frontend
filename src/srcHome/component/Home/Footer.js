@@ -72,7 +72,7 @@ const Footer = () => {
                 </ul>
             </div>
 
-            <div>
+            {/* <div>
                 <p class="text-lg font-semibold text-white">Extra Links</p>
 
                 <ul class="mt-8 space-y-4">
@@ -92,7 +92,7 @@ const Footer = () => {
                         <a href="#" title="" class="text-blue-200 transition-all duration-200 hover:text-white focus:text-white"> Privacy Policy </a>
                     </li>
                 </ul>
-            </div>
+            </div> */}
         </div>
 
         <div class="mt-20 md:mt-28 2xl:mt-32">

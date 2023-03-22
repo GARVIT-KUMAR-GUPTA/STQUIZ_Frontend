@@ -9,7 +9,7 @@ const StartQuiz = (props) => {
     return (
         <div style={{backgroundColor:"#ffb14c"}} >
             <div className='h-30 text-center'>
-            <h1>{name}</h1>
+            
             </div>
            
            <Home></Home>
